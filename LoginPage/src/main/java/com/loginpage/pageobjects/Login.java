@@ -28,7 +28,7 @@ public class Login {
 	
 	String current_url=driver.getCurrentUrl();
 	
-	if(current_url.toString()== "https://www.facebook.com/")
+	if(current_url.toString()== "https://www.facebook.com/home.php")
 	{
 		System.out.println("Login is succesful");
 	
