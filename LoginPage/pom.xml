@@ -1,0 +1,58 @@
+
+<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>LoginPage</groupId>
+  <artifactId>LoginPage</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Login</name>
+  
+
+
+<properties>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>	
+<maven.compiler.source>1.8</maven.compiler.source>
+<maven.compiler.target>1.8</maven.compiler.target>	
+</properties>
+
+
+
+<dependencies>
+
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-support</artifactId>
+    <version>4.15.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+<groupId>org.testng</groupId>
+<artifactId>testng</artifactId>
+<version>7.7.1</version>
+<scope>test</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+<dependency>
+<groupId>io.github.bonigarcia</groupId>
+<artifactId>webdrivermanager</artifactId>
+<version>5.6.1</version>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/io.opentelemetry/opentelemetry-semconv -->
+<dependency>
+    <groupId>io.opentelemetry</groupId>
+    <artifactId>opentelemetry-semconv</artifactId>
+    <version>1.28.0-alpha</version>
+    <scope>runtime</scope>
+</dependency>
+
+	
+</dependencies>
+
+
+
+</project>
+
