@@ -11,17 +11,14 @@ import com.loginpage.utility.ConfigFileReader;
 public class TestLogin {
 
 
-	   static ConfigFileReader configFileReader ;
-		public static void main(String[] args) throws InterruptedException {
+	static ConfigFileReader configFileReader = new ConfigFileReader();
+	public static void main(String[] args) throws InterruptedException {
 		 
-	
+		System.setProperty("webdriver.gecko.driver",
+				"/Users/tanyaoberoi/Downloads/chromedriver-mac-x64");
 		WebDriver driver = new ChromeDriver();
-		try {
-			driver.get(configFileReader.getApplicationUrl());
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		driver.get(configFileReader.getApplicationUrl());
+	
 		
 		//Creating object of home page
 		HomePage home = new HomePage(driver);
@@ -29,13 +26,13 @@ public class TestLogin {
 		//Creating object of Login page
 		Login login = new Login(driver);
 	
-		Dashboard dashboard = new Dashboard(driver);
+		//Dashboard dashboard = new Dashboard(driver);
 		
 		//Click on Login button
 		home.clickLogin();
 		
 	
-		login.enterUsername("Tanya@gmamil.com");
+		login.enterUsername("Tanya@gmail.com");
 		login.enterPassword("Mango123#");
 		
 		//Click on login button
@@ -45,10 +42,10 @@ public class TestLogin {
 
 
 		//Capture the page heading and print on console
-		System.out.println("The page heading is --- " +dashboard.getHeading());
+		//ßSystem.out.println("The page heading is --- " + dashboard.getHeading());
 
 		//Click on Logout button
-		dashboard.clickLogout();
+		//dashboard.clickLogout();
 
        //Close browser instance
 		driver.quit();
