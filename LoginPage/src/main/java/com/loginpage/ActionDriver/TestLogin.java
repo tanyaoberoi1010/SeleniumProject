@@ -1,19 +1,11 @@
 package com.loginpage.ActionDriver;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.loginpage.baseclass.HomePage;
 import com.loginpage.pageobjects.Dashboard;
 import com.loginpage.pageobjects.Login;
-
-import org.testng.Assert;
-
-import org.testng.annotations.BeforeTest;
-
-import org.testng.annotations.Test;
 
 public class TestLogin {
 
