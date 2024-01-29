@@ -6,30 +6,37 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import com.loginpage.baseclass.HomePage;
 import com.loginpage.pageobjects.Dashboard;
 import com.loginpage.pageobjects.Login;
+import com.loginpage.utility.ConfigFileReader;
 
 public class TestLogin {
 
-public static void main(String[] args) throws InterruptedException {
-		
-		System.setProperty("webdriver.chrome.driver", "---Exact path to chromedriver.exe---");
+
+	   static ConfigFileReader configFileReader ;
+		public static void main(String[] args) throws InterruptedException {
+		 
+	
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://www.demoqa.com/books");
+		try {
+			driver.get(configFileReader.getApplicationUrl());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//Creating object of home page
 		HomePage home = new HomePage(driver);
 		
 		//Creating object of Login page
 		Login login = new Login(driver);
-		
-		//Creating object of Dashboard
+	
 		Dashboard dashboard = new Dashboard(driver);
 		
 		//Click on Login button
 		home.clickLogin();
 		
-		//Enter username & password
-		login.enterUsername("---Your Username---");
-		login.enterPassword("---Your Password---");
+	
+		login.enterUsername("Tanya@gmamil.com");
+		login.enterPassword("Mango123#");
 		
 		//Click on login button
 		login.clickLogin();
