@@ -30,7 +30,7 @@
 <groupId>org.testng</groupId>
 <artifactId>testng</artifactId>
 <version>7.7.1</version>
-<scope>test</scope>
+
 </dependency>
 
 <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
@@ -50,6 +50,11 @@
 </dependency>
 
 	
+	<dependency>
+		<groupId>DemoSelenium</groupId>
+		<artifactId>DemoSelenium</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
 </dependencies>
 
 
