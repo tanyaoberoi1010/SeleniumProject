@@ -3,26 +3,21 @@ package com.loginpage.baseclass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage {
 
-    WebDriver driver;
+	public class HomePage {
 
-    By homePageUserName = By.xpath("//table//tr[@class='heading3']");
-
-    
-
-    public HomePage(WebDriver driver){
-
-        this.driver = driver;
-
-    }
-
-    //Get the User name from Home Page
-
-        public String getHomePageDashboardUserName(){
-
-         return    driver.findElement(homePageUserName).getText();
-
-        }
-
-}
+		WebDriver driver;
+		
+		//Constructor that will be automatically called as soon as the object of the class is created
+		public HomePage(WebDriver driver) {
+			this.driver=driver;
+		}
+		
+		//Locator for login button
+		By LoginBtn = By.id("login");
+		
+		//Method to click login button
+		public void clickLogin() {
+			driver.findElement(LoginBtn).click();
+		}
+	}

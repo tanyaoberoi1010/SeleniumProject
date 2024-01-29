@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.loginpage.baseclass.HomePage;
+import com.loginpage.pageobjects.Dashboard;
 import com.loginpage.pageobjects.Login;
 
 import org.testng.Assert;
@@ -16,65 +17,43 @@ import org.testng.annotations.Test;
 
 public class TestLogin {
 
-    String driverPath = "C:\\geckodriver.exe";
-    
-    WebDriver driver;
+public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "---Exact path to chromedriver.exe---");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.demoqa.com/books");
+		
+		//Creating object of home page
+		HomePage home = new HomePage(driver);
+		
+		//Creating object of Login page
+		Login login = new Login(driver);
+		
+		//Creating object of Dashboard
+		Dashboard dashboard = new Dashboard(driver);
+		
+		//Click on Login button
+		home.clickLogin();
+		
+		//Enter username & password
+		login.enterUsername("---Your Username---");
+		login.enterPassword("---Your Password---");
+		
+		//Click on login button
+		login.clickLogin();
 
-    Login objLogin;
+		Thread.sleep(3000);
 
-    HomePage objHomePage;
 
-    @BeforeTest
+		//Capture the page heading and print on console
+		System.out.println("The page heading is --- " +dashboard.getHeading());
 
-    public void setup(){
+		//Click on Logout button
+		dashboard.clickLogout();
 
-	System.setProperty("webdriver.gecko.driver", driverPath);
-        
-        driver = new ChromeDriver();
+       //Close browser instance
+		driver.quit();
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        driver.get("http://demo.guru99.com/V4/");
-
-    }
-
-    /**
-
-     * This test case will login in http://demo.guru99.com/V4/
-
-     * Verify login page title as guru99 bank
-
-     * Login to application
-
-     * Verify the home page using Dashboard message
-
-     */
-
-    @Test(priority=0)
-
-    public void test_Home_Page_Appear_Correct(){
-
-        //Create Login Page object
-
-    objLogin = new Login(driver);
-
-    //Verify login page title
-
-    String loginPageTitle = objLogin.getLoginTitle();
-
-    Assert.assertTrue(loginPageTitle.toLowerCase().contains("guru99 bank"));
-
-    //login to application
-
-    objLogin.loginToGuru99("mgr123", "mgr!23");
-
-    // go the next page
-
-    objHomePage = new HomePage(driver);
-
-    //Verify home page
-
-    Assert.assertTrue(objHomePage.getHomePageDashboardUserName().toLowerCase().contains("manger id : mgr123"));
-
-    }
+}
 }

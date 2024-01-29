@@ -7,79 +7,34 @@ import org.openqa.selenium.WebDriver;
 
 public class Login {
 
-    WebDriver driver;
-
-    By user99GuruName = By.name("uid");
-
-    By password99Guru = By.name("password");
-
-    By titleText =By.className("barone");
-
-    By login = By.name("btnLogin");
-
-    public Login(WebDriver driver){
-
-        this.driver = driver;
-
-    }
-
-    //Set user name in textbox
-
-    public void setUserName(String strUserName){
-
-        driver.findElement(user99GuruName).sendKeys(strUserName);
-
-    }
-
-    //Set password in password textbox
-
-    public void setPassword(String strPassword){
-
-         driver.findElement(password99Guru).sendKeys(strPassword);
-
-    }
-
-    //Click on login button
-
-    public void clickLogin(){
-
-            driver.findElement(login).click();
-
-    }
-
-    //Get the title of Login Page
-
-    public String getLoginTitle(){
-
-     return    driver.findElement(titleText).getText();
-
-    }
-
-    /**
-
-     * This POM method will be exposed in test case to login in the application
-
-     * @param strUserName
-
-     * @param strPasword
-
-     * @return
-
-     */
-
-    public void loginToGuru99(String strUserName,String strPasword){
-
-        //Fill user name
-
-        this.setUserName(strUserName);
-
-        //Fill password
-
-        this.setPassword(strPasword);
-
-        //Click Login button
-
-        this.clickLogin();        
-    }
-
-}
+WebDriver driver;
+	
+	//Constructor that will be automatically called as soon as the object of the class is created
+	public Login(WebDriver driver) {
+          this.driver = driver;
+	}
+	
+	//Locator for username field
+	By uName = By.id("userName");
+	
+	//Locator for password field
+	By pswd = By.id("password");
+	
+	//Locator for login button
+	By loginBtn = By.id("login");
+	
+	
+	//Method to enter username
+	public void enterUsername(String user) {
+		driver.findElement(uName).sendKeys(user);
+	}
+	//Method to enter password
+		public void enterPassword(String pass) {
+			driver.findElement(pswd).sendKeys(pass);
+		}
+		
+		//Method to click on Login button
+		public void clickLogin() {
+			driver.findElement(loginBtn).click();
+		}
+	}
