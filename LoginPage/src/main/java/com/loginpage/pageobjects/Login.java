@@ -17,9 +17,9 @@ static ConfigFileReader configFileReader = new ConfigFileReader();
           this.driver = driver;
 	}
 	
-	By uName = By.name("username");
+	By uName = By.name("user[login]");
 	
-	By pswd = By.name("password");
+	By pswd = By.name("user[password]");
 	
 	By loginBtn=By.xpath("//button[@type='submit']");
 	
