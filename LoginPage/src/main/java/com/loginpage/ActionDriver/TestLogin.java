@@ -25,8 +25,6 @@ public class TestLogin {
 				login.clickLogin();//Click on login button
 				
 				Thread.sleep(3000);
-
-
 			
 	}
 }
