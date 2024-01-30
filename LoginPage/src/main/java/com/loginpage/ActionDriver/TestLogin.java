@@ -17,39 +17,36 @@ public class TestLogin {
 		System.setProperty("webdriver.gecko.driver",
 				"/Users/tanyaoberoi/Downloads/chromedriver-mac-x64");
 		WebDriver driver = new ChromeDriver();
-		driver.get(configFileReader.getApplicationUrl());
-	
+		driver.navigate().to(configFileReader.getApplicationUrl());
 		
 		//Creating object of home page
-		HomePage home = new HomePage(driver);
-		
-		//Creating object of Login page
-		Login login = new Login(driver);
-	
-		//Dashboard dashboard = new Dashboard(driver);
-		
-		//Click on Login button
-		home.clickLogin();
-		
-	
-		login.enterUsername("Tanya@gmail.com");
-		login.enterPassword("Mango123#");
-		
-		//Click on login button
-		login.clickLogin();
+				//HomePage home = new HomePage(driver);
+				
+				//Creating object of Login page
+				Login login = new Login(driver);
+			
+				//Dashboard dashboard = new Dashboard(driver);
+				
+				//Click on Login button
+				//home.clickLogin();
+				
+				login.enterUsername(configFileReader.getUsername());
+				login.enterPassword(configFileReader.getPassword());
+				login.clickLogin();
+				
+				//Click on login button
+			
 
-		Thread.sleep(3000);
-
-
-		//Capture the page heading and print on console
-		//ßSystem.out.println("The page heading is --- " + dashboard.getHeading());
-
-		//Click on Logout button
-		//dashboard.clickLogout();
-
-       //Close browser instance
-		driver.quit();
+				Thread.sleep(3000);
 
 
-}
+				//Capture the page heading and print on console
+				//ßSystem.out.println("The page heading is --- " + dashboard.getHeading());
+
+				//Click on Logout button
+				//dashboard.clickLogout();
+
+		       //Close browser instance
+				//driver.quit();
+	}
 }

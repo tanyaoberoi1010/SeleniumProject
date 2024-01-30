@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 		WebDriver driver;
 		
 		//Constructor that will be automatically called as soon as the object of the class is created
-		public HomePage(WebDriver driver) {
+		/*public HomePage(WebDriver driver) {
 			this.driver=driver;
 		}
 		
@@ -18,6 +18,6 @@ import org.openqa.selenium.WebDriver;
 		
 		//Method to click login button
 		public void clickLogin() {
-			driver.findElement(LoginBtn).click();
-		}
+			driver.findElement(LoginBtn).click();*/
+	
 	}

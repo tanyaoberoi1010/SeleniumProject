@@ -10,7 +10,7 @@ import java.util.Properties;
 public class ConfigFileReader {
 			
 			private Properties properties;
-			private final String propertyFilePath= "/Users/tanyaoberoi/git/SeleniumProject/LoginPage/src/main/java/com/loginpage/utility/Configuration.properties";
+			private final String propertyFilePath= "/Users/tanyaoberoi/git/SeleniumProject/LoginPage/src/test/resources/Configuration/Configuration.properties";
 
 			
 			public ConfigFileReader(){
@@ -39,10 +39,19 @@ public class ConfigFileReader {
 			
 			public String getApplicationUrl() {
 				String url = properties.getProperty("url");
-				System.out.println(url);
 				if(url != null) return url;
 				else throw new RuntimeException("url not specified in the Configuration.properties file.");
 	}
-
+			public String getUsername() {
+				String username = properties.getProperty("username");
+				if(username != null) return username;
+				else throw new RuntimeException("Username not specified in the Configuration.properties file.");
+	}	
+			
+			public String getPassword() {
+		String password = properties.getProperty("password");
+		if(password != null) return password;
+		else throw new RuntimeException("Password not specified in the Configuration.properties file.");
+}
 	
 }
