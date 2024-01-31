@@ -27,6 +27,8 @@ public class TestLogin {
 				
 				Thread.sleep(3000);
 				
+				
+				//Valid Login
 				String title=driver.getTitle();
 				
 				if(title.equals("My Home | Codecademy")) {
