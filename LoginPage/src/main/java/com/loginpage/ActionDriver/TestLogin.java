@@ -25,6 +25,18 @@ public class TestLogin {
 				login.clickLogin();//Click on login button
 				
 				Thread.sleep(3000);
+				
+				String title=driver.getTitle();
+				
+				if(title=="Codecademy Logo") {
+					
+					System.out.println("Login successful");
+				}
+				
+				else 
+				{
+					System.out.println("Please try again!!!");
+				}
 			
 	}
 }
