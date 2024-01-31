@@ -1,5 +1,6 @@
 package com.loginpage.ActionDriver;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -28,14 +29,11 @@ public class TestLogin {
 				
 				String title=driver.getTitle();
 				
-				if(title=="Codecademy Logo") {
-					
+				if(title.equals("My Home | Codecademy")) {
 					System.out.println("Login successful");
 				}
-				
 				else 
-				{
-					System.out.println("Please try again!!!");
+				{System.out.println("Please try again!!!");
 				}
 			
 	}
