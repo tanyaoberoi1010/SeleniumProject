@@ -37,6 +37,26 @@ public class TestLogin {
 				else 
 				{System.out.println("Please try again!!!");
 				}
+				
+				//Sign out
+				
+				By profile=By.xpath("//button[@data-testid='avatar-dropdown-button']");
+				driver.findElement(profile).click();//click on the profile logo on the homepage
+				
+				By logout=By.xpath("//a[@href='/sign_out']");
+				driver.findElement(logout).click();
+				
+				String homepage=driver.getTitle();
+				
+				if(driver.getTitle().equals("Learn to Code - for Free | Codecademy"))
+				{
+					System.out.println("Logout successful");
+				}
+				else
+				{
+					System.out.println("You are still logged innnn!!!");
+				}
+				
 			
 	}
 }
