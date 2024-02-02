@@ -2,7 +2,10 @@ package com.loginpage.ActionDriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 //import com.loginpage.baseclass.HomePage;
 import com.loginpage.pageobjects.Login;
@@ -41,14 +44,16 @@ public class TestLogin {
 				//Sign out
 				
 				By profile=By.xpath("//button[@data-testid='avatar-dropdown-button']");
-				driver.findElement(profile).click();//click on the profile logo on the homepage
-				
-				By logout=By.xpath("//a[@href='/sign_out']");
+				driver.findElement(profile).click();
+
+		      
+		 
+		      
+		        By logout=By.xpath("//a[role=['menuitem']");
 				driver.findElement(logout).click();
-				
+		        
 				String homepage=driver.getTitle();
-				
-				if(driver.getTitle().equals("Learn to Code - for Free | Codecademy"))
+				if(homepage.equals("Learn to Code - for Free | Codecademy"))
 				{
 					System.out.println("Logout successful");
 				}
