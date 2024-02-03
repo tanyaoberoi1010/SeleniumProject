@@ -43,7 +43,9 @@ public class TestLogin {
 				
 				//Sign out
 				
-				By profile=By.xpath("//button[@data-testid='avatar-dropdown-button']");
+				/*
+				 * 
+				 * By profile=By.xpath("//button[@data-testid='avatar-dropdown-button']");
 				driver.findElement(profile).click();
 
 		      
@@ -60,8 +62,25 @@ public class TestLogin {
 				else
 				{
 					System.out.println("You are still logged innnn!!!");
-				}
+				}*/
 				
+				//Password validation 
+				
+				By validationmessage=By.xpath("//span[@data-testid='error-text']");
+			
+				WebElement errorMessage = driver.findElement(validationmessage);
+				
+				System.out.println(errorMessage);
+
+        // Check if the error message contains a specific text indicating invalid password
+      if (errorMessage.getText().contains("Invalid email or password")) {
+            System.out.println("Password validation test passed.");
+        } else {
+            System.out.println("Password validation test failed.");
+        }
+
+       
+    }
+			
 			
 	}
-}
