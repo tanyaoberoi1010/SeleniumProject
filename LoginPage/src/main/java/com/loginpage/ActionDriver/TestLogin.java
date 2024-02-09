@@ -1,10 +1,15 @@
 package com.loginpage.ActionDriver;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 //import com.loginpage.baseclass.HomePage;
 import com.loginpage.pageobjects.Login;
 import com.loginpage.utility.ConfigFileReader;
@@ -56,13 +61,16 @@ public class TestLogin {
 				// Find the menu container by its ID
 				WebElement menuContainer = driver.findElement(By.id("menu-containerProfile"));
 				System.out.println(menuContainer);
-
+				
+				WebElement optionToSelect = menuContainer.findElement(By.cssSelector("li:nth-child(5)"));
 				// Find the list items within the menu container
 				// You may need to adjust the selector if there are multiple menus on the page
 				// In this case, we're assuming that the list items are direct children of the menu container
 				// and using a CSS selector to find them
+				WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(30));
+				wait.until(ExpectedConditions.invisibilityOf(optionToSelect));
 				
-				WebElement optionToSelect = menuContainer.findElement(By.cssSelector("li:nth-child(5)"));
+			
 				//driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 				optionToSelect.click();
 				} 
@@ -73,8 +81,5 @@ public class TestLogin {
                 System.out.println("Element not interactable: " + e.getMessage());
 				// Click on the link within the list item to select the option
 				}
-				
-				// Close the browser
-				driver.quit();
 				}		
 }
