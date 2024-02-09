@@ -1,12 +1,10 @@
 package com.loginpage.ActionDriver;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 //import com.loginpage.baseclass.HomePage;
 import com.loginpage.pageobjects.Login;
 import com.loginpage.utility.ConfigFileReader;
@@ -27,60 +25,56 @@ public class TestLogin {
 				login.enterUsername(configFileReader.getUsername());
 				login.enterPassword(configFileReader.getPassword());
 				login.clickLogin();//Click on login button
-				
 				Thread.sleep(3000);
-				
 				
 				//Valid Login
 				String title=driver.getTitle();
-				
+					
 				if(title.equals("My Home | Codecademy")) {
 					System.out.println("Login successful");
-				}
-				else 
-				{System.out.println("Please try again!!!");
-				}
-				
-				//Sign out
-				
-				/*
-				 * 
-				 * By profile=By.xpath("//button[@data-testid='avatar-dropdown-button']");
-				driver.findElement(profile).click();
-
-		      
-		 
-		      
-		        By logout=By.xpath("//a[role=['menuitem']");
-				driver.findElement(logout).click();
-		        
-				String homepage=driver.getTitle();
-				if(homepage.equals("Learn to Code - for Free | Codecademy"))
-				{
-					System.out.println("Logout successful");
+					
 				}
 				else
 				{
-					System.out.println("You are still logged innnn!!!");
-				}*/
 				
-				//Password validation 
-				
-				By validationmessage=By.xpath("//span[@data-testid='error-text']");
+					By validpassword=By.cssSelector("span[data-testid='error-text'][aria-live='polite']");
+				    WebElement validation=driver.findElement(validpassword);
+				    
+			    String errorText=validation.getText();
 			
-				WebElement errorMessage = driver.findElement(validationmessage);
+						if(errorText.contains("Invalid email or password"))
+						
+						{
+							  System.out.println("Password or email is incorrect");
+							  
+				        } 
+				}
 				
-				System.out.println(errorMessage);
+				//Sign out
+			
+				try {
+				// Find the menu container by its ID
+				WebElement menuContainer = driver.findElement(By.id("menu-containerProfile"));
+				System.out.println(menuContainer);
 
-        // Check if the error message contains a specific text indicating invalid password
-      if (errorMessage.getText().contains("Invalid email or password")) {
-            System.out.println("Password validation test passed.");
-        } else {
-            System.out.println("Password validation test failed.");
-        }
-
-       
-    }
-			
-			
-	}
+				// Find the list items within the menu container
+				// You may need to adjust the selector if there are multiple menus on the page
+				// In this case, we're assuming that the list items are direct children of the menu container
+				// and using a CSS selector to find them
+				
+				WebElement optionToSelect = menuContainer.findElement(By.cssSelector("li:nth-child(5)"));
+				//driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+				optionToSelect.click();
+				} 
+				
+				
+				catch (ElementNotInteractableException e) 
+				{
+                System.out.println("Element not interactable: " + e.getMessage());
+				// Click on the link within the list item to select the option
+				}
+				
+				// Close the browser
+				driver.quit();
+				}		
+}
